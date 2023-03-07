@@ -1,140 +1,172 @@
 /***************************/
 /*  Author:  Antoine THOMAS
-/*  Date:  02/03/2023
+/*  Date:  03/2023
 /*  Version:  1.0
-/*  Description:  
+/*  Description:
 /*    - Developpement et test d un service RPC
 /*    - Gestion de paniers
 /*  compile:  rpcgen -a -o phenix.x
 /***************************/
 
+struct Coordonnee
+{
+  int x;
+  int y;
+};
+typedef struct Coordonnee Coordonnee;
 
-struct date{
+struct Adresse
+{
+  char ville[50];
+  char pays[50];
+  char code_Postal[5];
+  char rue[100];
+  Coordonnee Coordonnee;
+};
+typedef struct Adresse Adresse;
+
+struct Date
+{
   int jour;
   int mois;
   int annee;
 };
-typedef struct date date;
+typedef struct Date Date;
 
-struct commande{
-  int numero;
-  char commentaire[200];
-  int prix;
-  date date_commande;
-  char etat[10];
-};
-
-
-struct pannier{
-  int id;
-  char Nom[50];
-  char categorie[50];
-  char Specialite[50];
-  char Description[100];
-  int prix;
-  date date_ajout;
-  date date_recuperation;
-  char etat;
-};
-typedef struct pannier pannier;
-
-
-struct partenaire{
-  char Nom[50];
-  char Email[100];
-  char Telephone[10];
-  char mdp[256];
-  char categorie[50];
-  char description[100];
-  pannier liste_pannier[100];
-
-};
-
-struct client{
-  char Nom[50];
-  char Prenom[50];
-  char Email[100];
-  char Telephone[10];
-  char Code_Postal[5];
-  char mdp[256];
-  commande liste_commande[100];
-  partenaire partenaire_favorit[100];
-};
-
-typedef struct client client;
-
-
-
-
-struct produit{
+struct Produit
+{
   char nom[50];
   char categorie[50];
   char description[100];
+  char specificite[50];
   int quantite;
-
 };
-typedef struct produit produit;
+typedef struct Produit Produit;
 
-
-
-struct Adresse{
-  char Ville[50];
-  char Pays[50];
-  char Code_Postal[5];
-  char Adresse[100];
+struct Pannier
+{
+  int id;
+  char nom[50];
+  char categorie[50];
+  char specialite[50];
+  char description[100];
+  int prix;
+  Date date_ajout;
+  char heure_recuperation[11];
+  char etat;
+  Produit liste_produit[5];
+  int nb_produit;
 };
-typedef struct Adresse Adresse;
+typedef struct Pannier Pannier;
 
-struct search_param{
-  char type_recherche[50];
-  char parametre[50];
-
+struct Commande
+{
+  int numero;
+  char commentaire[200];
+  int prix;
+  Date date_commande;
+  char etat[10];
+  Pannier liste_pannier[100];
+  int nb_pannier;
 };
+typedef struct Commande Commande;
 
-struct connexion_param{
-  char Email[100];
+struct Partenaire
+{
+  char nom[50];
+  char email[100];
+  char telephone[10];
+  char mdp[256];
+  char categorie[50];
+  Adresse adresse;
+  char description[100];
+  Pannier liste_pannier[100];
+  int nb_pannier;
+};
+typedef struct Partenaire Partenaire;
+
+struct Client
+{
+  char nom[50];
+  char prenom[50];
+  char email[100];
+  char telephone[10];
+  Adresse adresse;
+  char mdp[256];
+  Commande liste_commande[100];
+  Partenaire partenaire_favorit[100];
+  int nb_commande;
+  int nb_partenaire_favorit;
+};
+typedef struct Client Client;
+
+struct Gestionnaire
+{
+  char nom[50];
+  char prenom[50];
+  char email[100];
+  char telephone[10];
   char mdp[256];
 };
 
-struct change_pannier_param{
+
+struct Search_Param
+{
+  char type_recherche[50];
+  char parametre[50];
+};
+typedef struct Search_Param Search_Param;
+
+struct Connexion_param
+{
+  char email[100];
+  char mdp[256];
+};
+typedef struct Connexion_param Connexion_param;
+
+struct Change_pannier_param
+{
   int id;
   char info_a_modifier[50];
   char parametre[50];
 };
+typedef struct Change_pannier_param Change_pannier_param;
 
-struct change_profil_param{
+struct Change_profil_param
+{
   char info_a_modifier[50];
-  char parametre[50];
+  char parametre[100];
 };
+typedef struct Change_profil_param Change_profil_param;
 
-struct tab_int{
+struct Tab_int
+{
   int tab[100];
 };
+typedef struct Tab_int Tab_int;
 
+program TEST
+{
+  version phenix
+  {
 
+    int init() = 1;
+    int inscription(Partenaire) = 2;
+    int connexion(Connexion_param) = 3;
 
+    Tab_int cln_recherche_partenaire(Search_Param) = 4;
+    Tab_int cln_recherche_pannier(int) = 5;
+    int cln_commande_pannier(int) = 6;
+    Tab_int cln_historique_commande(void) = 7;
+    int modifier_profil(Change_profil_param) = 8;
 
+    int part_ajouter_pannier(Pannier) = 9;
+    int part_modifier_pannier(Pannier) = 10;
+    int part_supprimer_pannier(int) = 11;
 
+    Tab_int part_liste_pannier(void) = 12;
 
-program TEST {
-  version phenix {
-
-    void init()=1;
-    int inscription(partenaire)=2;
-    int connexion(connexion_param)=3;
-
-    tab_int cln_recherche_partenaire(search_part_param)= 4;
-    tab_int cln_recherche_pannier(int)= 5;
-    int cln_commande_pannier(int)= 6; 
-    tab_int cln_historique_commande(void)= 7;
-    int modifier_profil(change_profil_param)= 8;
-
-    int part_ajouter_pannier(pannier)= 9;
-    int part_modifier_pannier(pannier)= 10;
-    int part_supprimer_pannier(int)= 11;
-
-    tab_int part_liste_pannier(void)= 12;
-
+    Tab_int cln_reecherche_pannier(Coordonnee) = 13;
 
     /*Creer_Pannier
 
@@ -150,11 +182,7 @@ program TEST {
     Mettre à jour la quantité d un article dans le panier
     Vider le panier
     Passer une commande*/
-
-
-
-  } = 1;
-} = 0x20000001;
-
-
-
+  }
+  = 1;
+}
+= 0x20000001;
