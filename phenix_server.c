@@ -6,6 +6,9 @@
 
 #include "phenix.h"
 
+
+#include "phenix.h"
+
 // declaration des variables globales
 
 // liste des clients =0
@@ -133,6 +136,20 @@ Produit creer_produit(char nom[50], char categorie[50], char description[100], c
 	return produit;
 }
 
+
+int *
+test_auto_1_svc(void *argp, struct svc_req *rqstp)
+{
+	static int  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+//fonction server
 int *init_1_svc(void *argp, struct svc_req *rqstp)
 {
 	static int result;
@@ -297,6 +314,150 @@ Tab_int *
 cln_reecherche_pannier_1_svc(Coordonnee *argp, struct svc_req *rqstp)
 {
 	static Tab_int result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+int *
+inscription_1_svc(Partenaire *argp, struct svc_req *rqstp)
+{
+	static int  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+int *
+connexion_1_svc(Connexion_param *argp, struct svc_req *rqstp)
+{
+	static int  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+Tab_int *
+cln_recherche_partenaire_1_svc(Search_Param *argp, struct svc_req *rqstp)
+{
+	static Tab_int  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+Tab_int *
+cln_recherche_pannier_1_svc(int *argp, struct svc_req *rqstp)
+{
+	static Tab_int  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+int *
+cln_commande_pannier_1_svc(int *argp, struct svc_req *rqstp)
+{
+	static int  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+Tab_int *
+cln_historique_commande_1_svc(void *argp, struct svc_req *rqstp)
+{
+	static Tab_int  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+int *
+modifier_profil_1_svc(Change_profil_param *argp, struct svc_req *rqstp)
+{
+	static int  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+int *
+part_ajouter_pannier_1_svc(Pannier *argp, struct svc_req *rqstp)
+{
+	static int  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+int *
+part_modifier_pannier_1_svc(Pannier *argp, struct svc_req *rqstp)
+{
+	static int  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+int *
+part_supprimer_pannier_1_svc(int *argp, struct svc_req *rqstp)
+{
+	static int  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+Tab_int *
+part_liste_pannier_1_svc(void *argp, struct svc_req *rqstp)
+{
+	static Tab_int  result;
+
+	/*
+	 * insert server code here
+	 */
+
+	return &result;
+}
+
+Tab_int *
+cln_reecherche_pannier_1_svc(Coordonnee *argp, struct svc_req *rqstp)
+{
+	static Tab_int  result;
 
 	/*
 	 * insert server code here

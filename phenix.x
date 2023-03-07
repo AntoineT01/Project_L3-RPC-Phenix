@@ -149,24 +149,24 @@ program TEST
 {
   version phenix
   {
+    int test_auto() = 1;
+    int init() = 2;
+    int inscription(Partenaire) = 3;
+    int connexion(Connexion_param) = 4;
 
-    int init() = 1;
-    int inscription(Partenaire) = 2;
-    int connexion(Connexion_param) = 3;
+    Tab_int cln_recherche_partenaire(Search_Param) = 5;
+    Tab_int cln_recherche_pannier(int) = 6;
+    int cln_commande_pannier(int) = 7;
+    Tab_int cln_historique_commande(void) = 8;
+    int modifier_profil(Change_profil_param) = 9;
 
-    Tab_int cln_recherche_partenaire(Search_Param) = 4;
-    Tab_int cln_recherche_pannier(int) = 5;
-    int cln_commande_pannier(int) = 6;
-    Tab_int cln_historique_commande(void) = 7;
-    int modifier_profil(Change_profil_param) = 8;
+    int part_ajouter_pannier(Pannier) = 10;
+    int part_modifier_pannier(Pannier) = 11;
+    int part_supprimer_pannier(int) = 12;
 
-    int part_ajouter_pannier(Pannier) = 9;
-    int part_modifier_pannier(Pannier) = 10;
-    int part_supprimer_pannier(int) = 11;
+    Tab_int part_liste_pannier(void) = 13;
 
-    Tab_int part_liste_pannier(void) = 12;
-
-    Tab_int cln_reecherche_pannier(Coordonnee) = 13;
+    Tab_int cln_reecherche_pannier(Coordonnee) = 14;
 
     /*Creer_Pannier
 

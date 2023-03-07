@@ -154,85 +154,91 @@ typedef struct Tab_int Tab_int;
 #define phenix 1
 
 #if defined(__STDC__) || defined(__cplusplus)
-#define init 1
+#define test_auto 1
+extern  int * test_auto_1(void *, CLIENT *);
+extern  int * test_auto_1_svc(void *, struct svc_req *);
+#define init 2
 extern  int * init_1(void *, CLIENT *);
 extern  int * init_1_svc(void *, struct svc_req *);
-#define inscription 2
+#define inscription 3
 extern  int * inscription_1(Partenaire *, CLIENT *);
 extern  int * inscription_1_svc(Partenaire *, struct svc_req *);
-#define connexion 3
+#define connexion 4
 extern  int * connexion_1(Connexion_param *, CLIENT *);
 extern  int * connexion_1_svc(Connexion_param *, struct svc_req *);
-#define cln_recherche_partenaire 4
+#define cln_recherche_partenaire 5
 extern  Tab_int * cln_recherche_partenaire_1(Search_Param *, CLIENT *);
 extern  Tab_int * cln_recherche_partenaire_1_svc(Search_Param *, struct svc_req *);
-#define cln_recherche_pannier 5
+#define cln_recherche_pannier 6
 extern  Tab_int * cln_recherche_pannier_1(int *, CLIENT *);
 extern  Tab_int * cln_recherche_pannier_1_svc(int *, struct svc_req *);
-#define cln_commande_pannier 6
+#define cln_commande_pannier 7
 extern  int * cln_commande_pannier_1(int *, CLIENT *);
 extern  int * cln_commande_pannier_1_svc(int *, struct svc_req *);
-#define cln_historique_commande 7
+#define cln_historique_commande 8
 extern  Tab_int * cln_historique_commande_1(void *, CLIENT *);
 extern  Tab_int * cln_historique_commande_1_svc(void *, struct svc_req *);
-#define modifier_profil 8
+#define modifier_profil 9
 extern  int * modifier_profil_1(Change_profil_param *, CLIENT *);
 extern  int * modifier_profil_1_svc(Change_profil_param *, struct svc_req *);
-#define part_ajouter_pannier 9
+#define part_ajouter_pannier 10
 extern  int * part_ajouter_pannier_1(Pannier *, CLIENT *);
 extern  int * part_ajouter_pannier_1_svc(Pannier *, struct svc_req *);
-#define part_modifier_pannier 10
+#define part_modifier_pannier 11
 extern  int * part_modifier_pannier_1(Pannier *, CLIENT *);
 extern  int * part_modifier_pannier_1_svc(Pannier *, struct svc_req *);
-#define part_supprimer_pannier 11
+#define part_supprimer_pannier 12
 extern  int * part_supprimer_pannier_1(int *, CLIENT *);
 extern  int * part_supprimer_pannier_1_svc(int *, struct svc_req *);
-#define part_liste_pannier 12
+#define part_liste_pannier 13
 extern  Tab_int * part_liste_pannier_1(void *, CLIENT *);
 extern  Tab_int * part_liste_pannier_1_svc(void *, struct svc_req *);
-#define cln_reecherche_pannier 13
+#define cln_reecherche_pannier 14
 extern  Tab_int * cln_reecherche_pannier_1(Coordonnee *, CLIENT *);
 extern  Tab_int * cln_reecherche_pannier_1_svc(Coordonnee *, struct svc_req *);
 extern int test_1_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
-#define init 1
+#define test_auto 1
+extern  int * test_auto_1();
+extern  int * test_auto_1_svc();
+#define init 2
 extern  int * init_1();
 extern  int * init_1_svc();
-#define inscription 2
+#define inscription 3
 extern  int * inscription_1();
 extern  int * inscription_1_svc();
-#define connexion 3
+#define connexion 4
 extern  int * connexion_1();
 extern  int * connexion_1_svc();
-#define cln_recherche_partenaire 4
+#define cln_recherche_partenaire 5
 extern  Tab_int * cln_recherche_partenaire_1();
 extern  Tab_int * cln_recherche_partenaire_1_svc();
-#define cln_recherche_pannier 5
+#define cln_recherche_pannier 6
 extern  Tab_int * cln_recherche_pannier_1();
 extern  Tab_int * cln_recherche_pannier_1_svc();
-#define cln_commande_pannier 6
+#define cln_commande_pannier 7
 extern  int * cln_commande_pannier_1();
 extern  int * cln_commande_pannier_1_svc();
-#define cln_historique_commande 7
+#define cln_historique_commande 8
 extern  Tab_int * cln_historique_commande_1();
 extern  Tab_int * cln_historique_commande_1_svc();
-#define modifier_profil 8
+#define modifier_profil 9
 extern  int * modifier_profil_1();
 extern  int * modifier_profil_1_svc();
-#define part_ajouter_pannier 9
+#define part_ajouter_pannier 10
 extern  int * part_ajouter_pannier_1();
 extern  int * part_ajouter_pannier_1_svc();
-#define part_modifier_pannier 10
+#define part_modifier_pannier 11
 extern  int * part_modifier_pannier_1();
 extern  int * part_modifier_pannier_1_svc();
-#define part_supprimer_pannier 11
+#define part_supprimer_pannier 12
 extern  int * part_supprimer_pannier_1();
 extern  int * part_supprimer_pannier_1_svc();
-#define part_liste_pannier 12
+#define part_liste_pannier 13
 extern  Tab_int * part_liste_pannier_1();
 extern  Tab_int * part_liste_pannier_1_svc();
-#define cln_reecherche_pannier 13
+#define cln_reecherche_pannier 14
 extern  Tab_int * cln_reecherche_pannier_1();
 extern  Tab_int * cln_reecherche_pannier_1_svc();
 extern int test_1_freeresult ();

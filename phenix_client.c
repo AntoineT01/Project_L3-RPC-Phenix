@@ -12,30 +12,32 @@ test_1(char *host)
 {
 	CLIENT *clnt;
 	int  *result_1;
-	char *init_1_arg;
+	char *test_auto_1_arg;
 	int  *result_2;
-	Partenaire  inscription_1_arg;
+	char *init_1_arg;
 	int  *result_3;
+	Partenaire  inscription_1_arg;
+	int  *result_4;
 	Connexion_param  connexion_1_arg;
-	Tab_int  *result_4;
-	Search_Param  cln_recherche_partenaire_1_arg;
 	Tab_int  *result_5;
+	Search_Param  cln_recherche_partenaire_1_arg;
+	Tab_int  *result_6;
 	int  cln_recherche_pannier_1_arg;
-	int  *result_6;
+	int  *result_7;
 	int  cln_commande_pannier_1_arg;
-	Tab_int  *result_7;
+	Tab_int  *result_8;
 	char *cln_historique_commande_1_arg;
-	int  *result_8;
-	Change_profil_param  modifier_profil_1_arg;
 	int  *result_9;
-	Pannier  part_ajouter_pannier_1_arg;
+	Change_profil_param  modifier_profil_1_arg;
 	int  *result_10;
-	Pannier  part_modifier_pannier_1_arg;
+	Pannier  part_ajouter_pannier_1_arg;
 	int  *result_11;
+	Pannier  part_modifier_pannier_1_arg;
+	int  *result_12;
 	int  part_supprimer_pannier_1_arg;
-	Tab_int  *result_12;
-	char *part_liste_pannier_1_arg;
 	Tab_int  *result_13;
+	char *part_liste_pannier_1_arg;
+	Tab_int  *result_14;
 	Coordonnee  cln_reecherche_pannier_1_arg;
 
 #ifndef	DEBUG
@@ -46,56 +48,60 @@ test_1(char *host)
 	}
 #endif	/* DEBUG */
 
-	result_1 = init_1((void*)&init_1_arg, clnt);
+	result_1 = test_auto_1((void*)&test_auto_1_arg, clnt);
 	if (result_1 == (int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_2 = inscription_1(&inscription_1_arg, clnt);
+	result_2 = init_1((void*)&init_1_arg, clnt);
 	if (result_2 == (int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_3 = connexion_1(&connexion_1_arg, clnt);
+	result_3 = inscription_1(&inscription_1_arg, clnt);
 	if (result_3 == (int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_4 = cln_recherche_partenaire_1(&cln_recherche_partenaire_1_arg, clnt);
-	if (result_4 == (Tab_int *) NULL) {
+	result_4 = connexion_1(&connexion_1_arg, clnt);
+	if (result_4 == (int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_5 = cln_recherche_pannier_1(&cln_recherche_pannier_1_arg, clnt);
+	result_5 = cln_recherche_partenaire_1(&cln_recherche_partenaire_1_arg, clnt);
 	if (result_5 == (Tab_int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_6 = cln_commande_pannier_1(&cln_commande_pannier_1_arg, clnt);
-	if (result_6 == (int *) NULL) {
+	result_6 = cln_recherche_pannier_1(&cln_recherche_pannier_1_arg, clnt);
+	if (result_6 == (Tab_int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_7 = cln_historique_commande_1((void*)&cln_historique_commande_1_arg, clnt);
-	if (result_7 == (Tab_int *) NULL) {
+	result_7 = cln_commande_pannier_1(&cln_commande_pannier_1_arg, clnt);
+	if (result_7 == (int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_8 = modifier_profil_1(&modifier_profil_1_arg, clnt);
-	if (result_8 == (int *) NULL) {
+	result_8 = cln_historique_commande_1((void*)&cln_historique_commande_1_arg, clnt);
+	if (result_8 == (Tab_int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_9 = part_ajouter_pannier_1(&part_ajouter_pannier_1_arg, clnt);
+	result_9 = modifier_profil_1(&modifier_profil_1_arg, clnt);
 	if (result_9 == (int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_10 = part_modifier_pannier_1(&part_modifier_pannier_1_arg, clnt);
+	result_10 = part_ajouter_pannier_1(&part_ajouter_pannier_1_arg, clnt);
 	if (result_10 == (int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_11 = part_supprimer_pannier_1(&part_supprimer_pannier_1_arg, clnt);
+	result_11 = part_modifier_pannier_1(&part_modifier_pannier_1_arg, clnt);
 	if (result_11 == (int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_12 = part_liste_pannier_1((void*)&part_liste_pannier_1_arg, clnt);
-	if (result_12 == (Tab_int *) NULL) {
+	result_12 = part_supprimer_pannier_1(&part_supprimer_pannier_1_arg, clnt);
+	if (result_12 == (int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
-	result_13 = cln_reecherche_pannier_1(&cln_reecherche_pannier_1_arg, clnt);
+	result_13 = part_liste_pannier_1((void*)&part_liste_pannier_1_arg, clnt);
 	if (result_13 == (Tab_int *) NULL) {
+		clnt_perror (clnt, "call failed");
+	}
+	result_14 = cln_reecherche_pannier_1(&cln_reecherche_pannier_1_arg, clnt);
+	if (result_14 == (Tab_int *) NULL) {
 		clnt_perror (clnt, "call failed");
 	}
 #ifndef	DEBUG
